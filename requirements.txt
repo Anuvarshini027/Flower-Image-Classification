@@ -1,0 +1,9 @@
+tensorflow-cpu 
+urllib3
+numpy
+keras
+matplotlib
+streamlit
+cv2
+os
+pillow
