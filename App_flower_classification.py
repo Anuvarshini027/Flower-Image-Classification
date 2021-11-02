@@ -144,9 +144,11 @@ labels=['alpine sea holly',
  'wild rose',
  'windflower',
  'yellow iris']
+
+st.write(f"There are a total of {len(labels)} classes in the training dataset") 
 st.success("Loaded the Model :)")
 
-#option = st.multiselect('Would you like to choose random image from test dataset or upload image?',["Select Random Image from Test Dataset", "Upload from test dataset"])
+
 
 file = st.file_uploader("Choose an image...", type="jpeg")
 if file is not None:
@@ -178,11 +180,7 @@ if file is not None:
                     st.write(i, topic)
                 choice = st.text_input("Enter a choice: ")
                 assert int(choice) in xrange(len(topics))
-                st.info(wiki.summary(topics[choice]))
-            #information = wiki.summary(labels[prediction], 2)
-            #st.subheader("Here is a little info about the flower:)")
-            #st.info(information)
-            
+                st.info(wiki.summary(topics[choice])
             st.subheader("Thank You :)")
             
                     
