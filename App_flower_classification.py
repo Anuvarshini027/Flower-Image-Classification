@@ -4,9 +4,6 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import warnings
 warnings.filterwarnings("ignore") 
-import glob2
-import cv2
-import os
 import streamlit as st
 import time
 import wikipedia as wiki
@@ -14,7 +11,7 @@ from rake_nltk import Rake
 from keras.models import load_model
 from PIL import Image, ImageOps
 from keras.preprocessing.image import ImageDataGenerator
-from streamlit import caching
+
 
 
 st.title('Image Classification - Flower Dataset Project')
