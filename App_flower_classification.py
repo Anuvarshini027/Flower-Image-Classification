@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import tensorflow as tf
 import warnings
 warnings.filterwarnings("ignore") 
-import glob
+import glob2
 import cv2
 import os
 import streamlit as st
@@ -161,7 +161,7 @@ if "Select Random Image from Test Dataset" in option:
     with st.spinner('Wait for it...'):
         time.sleep(10)
         if imdir is not None:
-            all_images = [cv2.imread(file) for file in glob.glob(imdir)]
+            all_images = [cv2.imread(file) for file in glob2.glob(imdir)]
             st.write(f"There are totally {len(all_images)} images in the test dataset")
             st.write("By default, it chooses the fifth image in the test dataset")
             
