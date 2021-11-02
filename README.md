@@ -1,6 +1,7 @@
 # Flower-Image-Classification
 
-## Teachable Machine is used for training the images via MobileNet algorithm which uses transfer learning method. <br>
+### Teachable Machine is used for training the images via MobileNet algorithm which uses transfer learning method. <br>
+
 ### You can find the Model below:<br>
 https://teachablemachine.withgoogle.com/models/NVo6ggZzP/
 ## You can download the actual dataset from the following link: <br>
@@ -8,6 +9,8 @@ https://drive.google.com/file/d/1QDN2eQ1_mnFEaxMLS5dYT9WJXz5p3n_v/view?usp=shari
 
 ## This app has been deployed on streamlit. To view the app check the link below <br>
 https://share.streamlit.io/anuvarshini027/flower-image-classification/main/App_flower_classification.py
+
+### This app returns the predicted flower with its probability and also a description about it which is done using the wikipedia package.
 
 ## Streamlit web app implementation of the project. 
 
