@@ -173,6 +173,7 @@ if file is not None:
             try:
                 page = wiki.page(key)
                 st.info(page.summary)
+                st.success("Thank You :)")      
             except:
                 topics = wiki.search(key)
                 st.write(f"{labels[prediction].upper()} may refer to: ")
@@ -181,8 +182,8 @@ if file is not None:
                 choice = st.text_input("Enter a choice: ")
                 assert int(choice) in xrange(len(topics))
                 st.info(wiki.summary(topics[choice])
+                st.success("Thank You :)")      
                 
-   st.subheader("Thank You :)")                    
 else:
     st.warning("No file has been chosen yet")
 
