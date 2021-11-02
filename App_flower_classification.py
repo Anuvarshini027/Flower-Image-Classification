@@ -8,7 +8,6 @@ warnings.filterwarnings("ignore")
 import streamlit as st
 import time
 import wikipedia as wiki
-from rake_nltk import Rake
 from keras.models import load_model
 from PIL import Image, ImageOps
 from keras.preprocessing.image import ImageDataGenerator
@@ -147,7 +146,6 @@ labels=['alpine sea holly',
  'yellow iris']
 st.success("Loaded the Model :)")
 
-#option = st.multiselect('Would you like to choose random image from test dataset or upload image?',["Select Random Image from Test Dataset", "Upload from test dataset"])
 
 file = st.file_uploader("Choose an image...", type="jpeg")
 if file is not None:
@@ -162,11 +160,8 @@ if file is not None:
             prediction,prob=normalize_image(image_array)           
             st.write("The flower is more likely to be a/an ",labels[prediction].upper(),"with a probability of ",prob )
             
-            command=f"{labels[prediction]} flower"
-            rake = Rake()
-            rake.extract_keywords_from_text(command)
-            key = rake.get_ranked_phrases()
-            rake.get_ranked_phrases_with_scores()
+            key=f"{labels[prediction]} flower"
+           
             st.write("Key: " + str(key))
             st.subheader("Here is some information about the predicted flower:)")
             try:
@@ -180,9 +175,7 @@ if file is not None:
                 choice = st.text_input("Enter a choice: ")
                 assert int(choice) in xrange(len(topics))
                 st.info(wiki.summary(topics[choice]))
-            #information = wiki.summary(labels[prediction], 2)
-            #st.subheader("Here is a little info about the flower:)")
-            #st.info(information)
+           
             
     st.subheader("Thank You :)")
             
