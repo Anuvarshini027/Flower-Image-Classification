@@ -6,4 +6,5 @@ matplotlib
 streamlit
 Pillow
 wikipedia
+nltk
 rake-nltk
