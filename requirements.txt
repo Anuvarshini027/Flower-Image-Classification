@@ -6,7 +6,6 @@ keras
 matplotlib
 streamlit
 opencv-python
-os-sys
 Pillow
 wikipedia
 rake-nltk
