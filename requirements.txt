@@ -1,11 +1,9 @@
-glob2
 tensorflow-cpu 
 urllib3
 numpy
 keras
 matplotlib
 streamlit
-opencv-python
 Pillow
 wikipedia
 rake-nltk
