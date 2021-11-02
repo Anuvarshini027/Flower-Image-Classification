@@ -149,56 +149,12 @@ labels=['alpine sea holly',
  'yellow iris']
 st.success("Loaded the Model :)")
 
-option = st.multiselect('Would you like to choose random image from test dataset or upload image?',["Select Random Image from Test Dataset", "Upload from test dataset"])
+#option = st.multiselect('Would you like to choose random image from test dataset or upload image?',["Select Random Image from Test Dataset", "Upload from test dataset"])
 
-if "Select Random Image from Test Dataset" in option:
-    
-    st.write("Paste your test file directory in the below text box within 15 seconds. If not, it throws an error since the test file has not been encountered, but still if you press Enter, the execution continues :)")
-    st.info("Make sure the test file, the saved model and the python file belongs to same directory")
-    imdir=st.text_input("Paste your test file directory(Ex:test/*.jpeg) within 15 seconds")
-    
-    #"test//*.jpeg"
+file = st.file_uploader("Choose an image...", type="jpeg")
+if file is not None:
     with st.spinner('Wait for it...'):
-        time.sleep(10)
-        if imdir is not None:
-            all_images = [cv2.imread(file) for file in glob2.glob(imdir)]
-            st.write(f"There are totally {len(all_images)} images in the test dataset")
-            st.write("By default, it chooses the fifth image in the test dataset")
-            
-            img_chosen=st.slider('Choose a number:', 0, len(all_images),5)
-            a_img=all_images[img_chosen]
-            st.image(a_img, caption='Choosen Image', width=None)
-            st.subheader("Predicting...")
-            prediction,prob=normalize_image(a_img)
-            st.write("The flower is more likely to be a/an ", labels[prediction].upper(),"with a probability of ",prob )
-            
-            command=f"{labels[prediction]} flower"
-            rake = Rake()
-            rake.extract_keywords_from_text(command)
-            key = rake.get_ranked_phrases()
-            rake.get_ranked_phrases_with_scores()
-            st.write("Key: " + str(key))
-            st.subheader("Here is some information about the predicted flower:)")
-            try:
-                page = wiki.page(key)
-                st.info(page.summary)
-            except:
-                topics = wiki.search(key)
-                st.write("Recommendation may refer to: ")
-                for i, topic in enumerate(topics):
-                    st.write(i, topic)
-                choice = st.text_input("Enter a choice: ")
-                assert int(choice) in xrange(len(topics))
-                st.info(wiki.summary(topics[choice]))
-            st.subheader("Thank You :)")
-        else:
-            st.warning("Enter file directory")
         
-    #st.success("Thank You :)")
-elif "Upload from test dataset" in option:
-    file = st.file_uploader("Choose an image...", type="jpeg")
-    with st.spinner('Wait for it...'):
-        if file is not None:
             image = Image.open(file)
             st.image(image, caption='Uploaded Image.', width=None)
             
@@ -220,7 +176,7 @@ elif "Upload from test dataset" in option:
                 st.info(page.summary)
             except:
                 topics = wiki.search(key)
-                st.write("Recommendation may refer to: ")
+                st.write(f"{labels[prediction].upper()} may refer to: ")
                 for i, topic in enumerate(topics):
                     st.write(i, topic)
                 choice = st.text_input("Enter a choice: ")
@@ -233,7 +189,7 @@ elif "Upload from test dataset" in option:
             st.subheader("Thank You :)")
             
                     
-        else:
-             st.warning("No file has been chosen yet")
+else:
+    st.warning("No file has been chosen yet")
 
 
