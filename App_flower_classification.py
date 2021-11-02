@@ -8,6 +8,8 @@ warnings.filterwarnings("ignore")
 import streamlit as st
 import time
 import wikipedia as wiki
+import nltk
+nltk.download()
 from rake_nltk import Rake
 from keras.models import load_model
 from PIL import Image, ImageOps
