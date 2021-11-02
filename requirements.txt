@@ -4,8 +4,8 @@ numpy
 keras
 matplotlib
 streamlit
-cv2
-os
-pillow
+opencv-python
+os-sys
+Pillow
 wikipedia
 rake-nltk
