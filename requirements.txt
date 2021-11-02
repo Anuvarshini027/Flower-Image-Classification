@@ -7,3 +7,5 @@ streamlit
 cv2
 os
 pillow
+wikipedia
+rake-nltk
