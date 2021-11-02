@@ -181,9 +181,8 @@ if file is not None:
                 choice = st.text_input("Enter a choice: ")
                 assert int(choice) in xrange(len(topics))
                 st.info(wiki.summary(topics[choice])
-            st.subheader("Thank You :)")
-            
-                    
+                
+   st.subheader("Thank You :)")                    
 else:
     st.warning("No file has been chosen yet")
 
