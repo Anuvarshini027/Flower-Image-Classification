@@ -25,7 +25,7 @@ All the package requirements have been mentioned in the requirements.txt file.
 
 ## Using Anaconda Prompt:
 
-To run the app in anaconda prompt, go to the location where the App_flower_classification.py file is using the cd command and then run the following line:
+To run the app in anaconda prompt, go to the location where the App_flower_classification.py (or) flower_app.py file is using the cd command and then run the following line:
 
 ```
 streamlit run App_flower_classification.py
